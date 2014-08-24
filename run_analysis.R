@@ -75,7 +75,7 @@ run_analysis <- function()
         else
         {
             #print(pathToDataSet)
-            message("Read column headings from FEATUES.TXT datafile (index:mean, index:sd)")
+            message("Read FEATUES.TXT datafile")
             fTable <- read.table(pathToDataSet, header=FALSE, sep=' ', as.is=TRUE) 
         }
 
@@ -196,11 +196,12 @@ run_analysis <- function()
         {
             if (iDx[k] == 1)
                 {tavgMean[k] <- (sum(pTidy[, k+2], na.rm=TRUE))/(nrow(pTidy)); 
-                 pAvg[k+2] <- tavgMean[k]; print(sprintf("%d: %f", k, tavgMean[k]))
+                 pAvg[k+2] <- tavgMean[k]; #print(sprintf("%d: %f", k, tavgMean[k]))
                 }
             if (iDx[k] == 2)
                 {tavgSd[k] <- (sum(pTidy[, k+2], na.rm=TRUE))/(nrow(pTidy)); 
-                 pAvg[k+2] <- tavgSd[k]; print(sprintf("%d: %f", k, tavgSd[k]))}
+                 pAvg[k+2] <- tavgSd[k]; #print(sprintf("%d: %f", k, tavgSd[k]))
+                }
         }
         
         #now do within each subject
@@ -253,5 +254,4 @@ run_analysis <- function()
         gc(verbose=T)       #take out some garbage, see the memory use
         close(fileCon)      #close the file connection        
     }
-
 
