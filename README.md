@@ -71,3 +71,8 @@ One of the most exciting areas in all of data science right now is wearable comp
     Make the **CODEBOOK**
     
     
+    NOTE: One comment, the run_analysis.md file has a few errors
+    here and there. I consulted the 'net' about these, and they do
+    not appear to be an issue, especially if the *.R file runs 
+    correctly...just something flaky
+    
