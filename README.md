@@ -51,7 +51,7 @@ One of the most exciting areas in all of data science right now is wearable comp
     Scan features table for offsets to mean and Sd
     Place in mean and Sd [...Only] tables for test/train
     
-    Read teh test/trian data file associated with a feature
+    Read the test/train data file associated with a feature
     name, build the pre-tidy table, column by column
     
     Compute averages for each test/train, they are appended
