@@ -1,8 +1,10 @@
-#
-# POC: proof of concept, subset of mean/sd
+
 #
 # OWNER:
 #   dvarney     08/23/2014
+#
+# see README for description
+
 
 require(knitr)
 require(markdown)
