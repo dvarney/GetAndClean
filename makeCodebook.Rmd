@@ -1,0 +1,45 @@
+Codebook
+========
+Codebook was generated on `r as.character(Sys.time())` during the same process that
+generated the dataset. See `run_analysis.md` or `run_analysis.html` for details on
+dataset creation.
+
+Variable list and descriptions
+--------------------------------------------------------------------
+Variable name             | Description
+--------------------------|-----------------------------------------
+subject                   | who is the test/trial subject
+test                      | which of six test modes
+t/fBodyAcc-mean()-X,Y,Z   | Feature: Acceleration signal, Body
+tGravityAcc-mean()-X,Y,Z  | Feature: Acceleration signal, Gravity
+tBodyAccJerk-mean()-X,Y,Z | Feature: Jerk signal
+tBodyGyro-mean()-X,Y,Z    | Feature: Measuring instrument, Gyroscope
+t/fBodyAcc-sd()-X,Y,Z     | Feature: as above, SD
+tGravityAcc-sd()-X,Y,Z    | Feature: as above, 
+tBodyAccJerk-sd()-X,Y,Z   | Feature: as above
+tBodyGyro-sd()-X,Y,Z      | Feature: as above
+pAvg                      | average for all subjects with a feature
+mAvg                      | average within one test, one subject
+
+Dataset structure
+-----------------
+```{r}
+str(pTidy)
+```
+List the key variables in the data table
+----------------------------------------
+```{r}
+fTable[xr,2]
+```
+Show a few rows of the dataset
+------------------------------
+```{r}
+head(pTidy)
+```
+Summary of variables
+--------------------
+```{r}
+summary(pTidy)
+```
+Save to file tidy.csv
+------------

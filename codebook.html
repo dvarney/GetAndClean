@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Codebook</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Codebook</h1>
+
+<p>Codebook was generated on 2014-08-24 17:22:25 during the same process that
+generated the dataset. See <code>run_analysis.md</code> or <code>run_analysis.html</code> for details on
+dataset creation.</p>
+
+<h2>Variable list and descriptions</h2>
+
+<table><thead>
+<tr>
+<th>Variable name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subject</td>
+<td>who is the test/trial subject</td>
+</tr>
+<tr>
+<td>test</td>
+<td>which of six test modes</td>
+</tr>
+<tr>
+<td>t/fBodyAcc-mean()-X,Y,Z</td>
+<td>Feature: Acceleration signal, Body</td>
+</tr>
+<tr>
+<td>tGravityAcc-mean()-X,Y,Z</td>
+<td>Feature: Acceleration signal, Gravity</td>
+</tr>
+<tr>
+<td>tBodyAccJerk-mean()-X,Y,Z</td>
+<td>Feature: Jerk signal</td>
+</tr>
+<tr>
+<td>tBodyGyro-mean()-X,Y,Z</td>
+<td>Feature: Measuring instrument, Gyroscope</td>
+</tr>
+<tr>
+<td>t/fBodyAcc-sd()-X,Y,Z</td>
+<td>Feature: as above, SD</td>
+</tr>
+<tr>
+<td>tGravityAcc-sd()-X,Y,Z</td>
+<td>Feature: as above,</td>
+</tr>
+<tr>
+<td>tBodyAccJerk-sd()-X,Y,Z</td>
+<td>Feature: as above</td>
+</tr>
+<tr>
+<td>tBodyGyro-sd()-X,Y,Z</td>
+<td>Feature: as above</td>
+</tr>
+<tr>
+<td>pAvg</td>
+<td>average for all subjects with a feature</td>
+</tr>
+<tr>
+<td>mAvg</td>
+<td>average within one test, one subject</td>
+</tr>
+</tbody></table>
+
+<h2>Dataset structure</h2>
+
+<pre><code class="r">str(pTidy)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    2947 obs. of  39 variables:
+##  $ subject              : int  2 2 2 2 2 2 2 2 2 2 ...
+##  $ test                 : chr  &quot;STANDING&quot; &quot;STANDING&quot; &quot;STANDING&quot; &quot;STANDING&quot; ...
+##  $ tBodyAcc-mean()-X    : num  0.011653 0.00928 0.005732 0.000452 -0.004362 ...
+##  $ tGravityAcc-mean()-X : num  0.01493 0.001597 -0.001438 -0.000216 -0.001721 ...
+##  $ tBodyAccJerk-mean()-X: num  -0.00193 0.00213 -0.00652 -0.00652 -0.0014 ...
+##  $ tBodyGyro-mean()-X   : num  0.00285 -0.00109 -0.00386 0.00225 0.00365 ...
+##  $ tBodyAcc-mean()-Y    : num  0.01865 0.00733 -0.02205 -0.00867 0.00168 ...
+##  $ tGravityAcc-mean()-Y : num  0.00398 -0.00491 -0.00353 -0.00536 0.0035 ...
+##  $ tBodyAccJerk-mean()-Y: num  0.00475 -0.02259 -0.02301 -0.02072 0.00497 ...
+##  $ tBodyGyro-mean()-Y   : num  -0.0138 -0.00623 -0.00253 0.00248 0.00307 ...
+##  $ tBodyAcc-mean()-Z    : num  0.21685 -0.03664 0.00365 -0.00265 0.00407 ...
+##  $ tGravityAcc-mean()-Z : num  0.00713 0.00617 -0.0051 -0.00521 -0.00172 ...
+##  $ tBodyAccJerk-mean()-Z: num  0.0043 -0.00623 -0.00456 -0.0175 -0.01557 ...
+##  $ tBodyGyro-mean()-Z   : num  0.005892 0.000645 -0.000619 -0.010398 -0.002874 ...
+##  $ tBodyAcc-std()-X     : num  0.4794 0.0789 -0.0595 -0.0273 -0.0402 ...
+##  $ tGravityAcc-std()-X  : num  0.1115 0.1467 -0.0136 -0.0256 -0.0484 ...
+##  $ tBodyAccJerk-std()-X : num  0.0841 -0.0237 0.0204 -0.0513 -0.0154 ...
+##  $ tBodyGyro-std()-X    : num  0.0158 -0.0102 -0.0305 -0.0209 0.0166 ...
+##  $ tBodyAcc-std()-Y     : num  0.4145 -0.0929 -0.0456 -0.0392 -0.0371 ...
+##  $ tGravityAcc-std()-Y  : num  0.01929 -0.10904 -0.06604 -0.02979 -0.00415 ...
+##  $ tBodyAccJerk-std()-Y : num  -0.00857 -0.05327 -0.04351 -0.0057 -0.00807 ...
+##  $ tBodyGyro-std()-Y    : num  -0.08566 -0.03273 -0.03673 0.00234 0.02988 ...
+##  $ tBodyAcc-std()-Z     : num  -0.0271 0.054 0.0257 0.0663 0.0201 ...
+##  $ tGravityAcc-std()-Z  : num  0.03634 0.06124 0.04577 0.01461 -0.00386 ...
+##  $ tBodyAccJerk-std()-Z : num  0.02984 0.03182 0.02567 -0.00342 -0.00644 ...
+##  $ tBodyGyro-std()-Z    : num  0.0323 0.0583 0.0203 -0.0113 -0.0252 ...
+##  $ fBodyAcc-mean()-X    : num  1.041 0.999 0.998 0.995 0.988 ...
+##  $ fBodyAccJerk-mean()-X: num  1.009 0.995 0.987 0.988 0.988 ...
+##  $ fBodyAcc-mean()-Y    : num  -0.28 -0.253 -0.264 -0.289 -0.283 ...
+##  $ fBodyAccJerk-mean()-Y: num  -0.277 -0.263 -0.295 -0.301 -0.304 ...
+##  $ fBodyAcc-mean()-Z    : num  0.147 0.116 0.144 0.135 0.139 ...
+##  $ fBodyAccJerk-mean()-Z: num  0.16 0.135 0.133 0.117 0.111 ...
+##  $ fBodyAcc-std()-X     : num  0.005066 0.002247 -0.003738 0.000408 0.003126 ...
+##  $ fBodyAccJerk-std()-X : num  -0.00124 0.00118 0.00161 -0.00135 0.00172 ...
+##  $ fBodyAcc-std()-Y     : num  0.006141 -0.004191 0.000937 -0.007826 -0.007336 ...
+##  $ fBodyAccJerk-std()-Y : num  -0.00043 0.00449 -0.01116 -0.00746 0.00556 ...
+##  $ fBodyAcc-std()-Z     : num  0.04473 -0.02632 -0.00774 -0.00561 -0.00433 ...
+##  $ fBodyAccJerk-std()-Z : num  -0.014582 0.000344 -0.012684 -0.008756 0.00157 ...
+##  $ mAvg                 : num  -4.05e-04 9.55e-06 -3.52e-04 -2.43e-04 4.36e-05 ...
+</code></pre>
+
+<h2>List the key variables in the data table</h2>
+
+<pre><code class="r">fTable[xr,2]
+</code></pre>
+
+<pre><code>##  [1] &quot;tBodyAcc-mean()-X&quot;           &quot;tBodyAcc-mean()-Y&quot;          
+##  [3] &quot;tBodyAcc-mean()-Z&quot;           &quot;tGravityAcc-mean()-X&quot;       
+##  [5] &quot;tGravityAcc-mean()-Y&quot;        &quot;tGravityAcc-mean()-Z&quot;       
+##  [7] &quot;tBodyAccJerk-mean()-X&quot;       &quot;tBodyAccJerk-mean()-Y&quot;      
+##  [9] &quot;tBodyAccJerk-mean()-Z&quot;       &quot;tBodyGyro-mean()-X&quot;         
+## [11] &quot;tBodyGyro-mean()-Y&quot;          &quot;tBodyGyro-mean()-Z&quot;         
+## [13] &quot;tBodyGyroJerk-mean()-X&quot;      &quot;tBodyGyroJerk-mean()-Y&quot;     
+## [15] &quot;tBodyGyroJerk-mean()-Z&quot;      &quot;tBodyAccMag-mean()&quot;         
+## [17] &quot;tGravityAccMag-mean()&quot;       &quot;tBodyAccJerkMag-mean()&quot;     
+## [19] &quot;tBodyGyroMag-mean()&quot;         &quot;tBodyGyroJerkMag-mean()&quot;    
+## [21] &quot;fBodyAcc-mean()-X&quot;           &quot;fBodyAcc-mean()-Y&quot;          
+## [23] &quot;fBodyAcc-mean()-Z&quot;           &quot;fBodyAccJerk-mean()-X&quot;      
+## [25] &quot;fBodyAccJerk-mean()-Y&quot;       &quot;fBodyAccJerk-mean()-Z&quot;      
+## [27] &quot;fBodyGyro-mean()-X&quot;          &quot;fBodyGyro-mean()-Y&quot;         
+## [29] &quot;fBodyGyro-mean()-Z&quot;          &quot;fBodyAccMag-mean()&quot;         
+## [31] &quot;fBodyBodyAccJerkMag-mean()&quot;  &quot;fBodyBodyGyroMag-mean()&quot;    
+## [33] &quot;fBodyBodyGyroJerkMag-mean()&quot;
+</code></pre>
+
+<h2>Show a few rows of the dataset</h2>
+
+<pre><code class="r">head(pTidy)
+</code></pre>
+
+<pre><code>##   subject     test tBodyAcc-mean()-X tGravityAcc-mean()-X
+## 1       2 STANDING         0.0116531            0.0149295
+## 2       2 STANDING         0.0092796            0.0015970
+## 3       2 STANDING         0.0057319           -0.0014385
+## 4       2 STANDING         0.0004519           -0.0002163
+## 5       2 STANDING        -0.0043624           -0.0017210
+## 6       2 STANDING        -0.0010957            0.0033478
+##   tBodyAccJerk-mean()-X tBodyGyro-mean()-X tBodyAcc-mean()-Y
+## 1             -0.001934           0.002848          0.018650
+## 2              0.002135          -0.001095          0.007331
+## 3             -0.006515          -0.003860         -0.022051
+## 4             -0.006519           0.002248         -0.008671
+## 5             -0.001402           0.003647          0.001677
+## 6              0.001046           0.005215          0.003388
+##   tGravityAcc-mean()-Y tBodyAccJerk-mean()-Y tBodyGyro-mean()-Y
+## 1             0.003985              0.004747          -0.013802
+## 2            -0.004908             -0.022590          -0.006233
+## 3            -0.003531             -0.023007          -0.002527
+## 4            -0.005361             -0.020717           0.002476
+## 5             0.003497              0.004971           0.003067
+## 6             0.006574              0.004652          -0.009175
+##   tBodyAcc-mean()-Z tGravityAcc-mean()-Z tBodyAccJerk-mean()-Z
+## 1          0.216846             0.007130              0.004296
+## 2         -0.036639             0.006166             -0.006232
+## 3          0.003647            -0.005096             -0.004563
+## 4         -0.002649            -0.005209             -0.017503
+## 5          0.004069            -0.001724             -0.015572
+## 6         -0.004741            -0.006535              0.002276
+##   tBodyGyro-mean()-Z tBodyAcc-std()-X tGravityAcc-std()-X
+## 1          0.0058918          0.47940             0.11151
+## 2          0.0006449          0.07886             0.14670
+## 3         -0.0006193         -0.05946            -0.01358
+## 4         -0.0103976         -0.02729            -0.02564
+## 5         -0.0028740         -0.04017            -0.04842
+## 6          0.0055080         -0.03376            -0.01632
+##   tBodyAccJerk-std()-X tBodyGyro-std()-X tBodyAcc-std()-Y
+## 1             0.084093          0.015765          0.41454
+## 2            -0.023686         -0.010249         -0.09285
+## 3             0.020420         -0.030483         -0.04565
+## 4            -0.051316         -0.020943         -0.03924
+## 5            -0.015435          0.016630         -0.03708
+## 6            -0.005681          0.004187         -0.05772
+##   tGravityAcc-std()-Y tBodyAccJerk-std()-Y tBodyGyro-std()-Y
+## 1            0.019292            -0.008571         -0.085656
+## 2           -0.109042            -0.053267         -0.032731
+## 3           -0.066040            -0.043511         -0.036732
+## 4           -0.029795            -0.005704          0.002337
+## 5           -0.004151            -0.008074          0.029878
+## 6            0.019998             0.020687          0.022767
+##   tBodyAcc-std()-Z tGravityAcc-std()-Z tBodyAccJerk-std()-Z
+## 1         -0.02714            0.036341             0.029842
+## 2          0.05401            0.061244             0.031825
+## 3          0.02567            0.045768             0.025669
+## 4          0.06630            0.014606            -0.003421
+## 5          0.02013           -0.003858            -0.006443
+## 6          0.03903           -0.021157            -0.017655
+##   tBodyGyro-std()-Z fBodyAcc-mean()-X fBodyAccJerk-mean()-X
+## 1           0.03226            1.0412                1.0091
+## 2           0.05831            0.9992                0.9947
+## 3           0.02033            0.9976                0.9871
+## 4          -0.01133            0.9946                0.9879
+## 5          -0.02518            0.9882                0.9882
+## 6          -0.02447            0.9897                0.9924
+##   fBodyAcc-mean()-Y fBodyAccJerk-mean()-Y fBodyAcc-mean()-Z
+## 1           -0.2800               -0.2766            0.1475
+## 2           -0.2532               -0.2632            0.1164
+## 3           -0.2638               -0.2948            0.1442
+## 4           -0.2889               -0.3013            0.1353
+## 5           -0.2832               -0.3041            0.1394
+## 6           -0.2844               -0.2908            0.1264
+##   fBodyAccJerk-mean()-Z fBodyAcc-std()-X fBodyAccJerk-std()-X
+## 1                0.1601        0.0050659            -0.001236
+## 2                0.1352        0.0022474             0.001180
+## 3                0.1331       -0.0037377             0.001614
+## 4                0.1170        0.0004081            -0.001347
+## 5                0.1109        0.0031260             0.001717
+## 6                0.1235        0.0012683            -0.001797
+##   fBodyAcc-std()-Y fBodyAccJerk-std()-Y fBodyAcc-std()-Z
+## 1        0.0061410           -0.0004303         0.044729
+## 2       -0.0041909            0.0044886        -0.026321
+## 3        0.0009365           -0.0111575        -0.007745
+## 4       -0.0078256           -0.0074630        -0.005615
+## 5       -0.0073363            0.0055647        -0.004328
+## 6       -0.0018116            0.0038933         0.001851
+##   fBodyAccJerk-std()-Z       mAvg
+## 1           -0.0145822 -4.051e-04
+## 2            0.0003437  9.547e-06
+## 3           -0.0126842 -3.523e-04
+## 4           -0.0087560 -2.432e-04
+## 5            0.0015704  4.362e-05
+## 6            0.0036034  1.001e-04
+</code></pre>
+
+<h2>Summary of variables</h2>
+
+<pre><code class="r">summary(pTidy)
+</code></pre>
+
+<pre><code>##     subject       test           tBodyAcc-mean()-X tGravityAcc-mean()-X
+##  Min.   : 2   Length:2947        Min.   :-0.7561   Min.   :-0.7162     
+##  1st Qu.: 9   Class :character   1st Qu.:-0.0552   1st Qu.:-0.0517     
+##  Median :12   Mode  :character   Median :-0.0013   Median :-0.0012     
+##  Mean   :13                      Mean   :-0.0060   Mean   :-0.0039     
+##  3rd Qu.:18                      3rd Qu.: 0.0070   3rd Qu.: 0.0072     
+##  Max.   :24                      Max.   : 1.0710   Max.   : 1.0374     
+##                                                                        
+##  tBodyAccJerk-mean()-X tBodyGyro-mean()-X tBodyAcc-mean()-Y
+##  Min.   :-0.7979       Min.   :-0.6942    Min.   :-0.9664  
+##  1st Qu.:-0.0342       1st Qu.:-0.0236    1st Qu.:-0.0129  
+##  Median :-0.0008       Median :-0.0007    Median : 0.0014  
+##  Mean   :-0.0015       Mean   : 0.0113    Mean   : 0.0032  
+##  3rd Qu.: 0.0078       3rd Qu.: 0.0092    3rd Qu.: 0.0343  
+##  Max.   : 0.9805       Max.   : 1.1292    Max.   : 0.5674  
+##                                           NA&#39;s   :1        
+##  tGravityAcc-mean()-Y tBodyAccJerk-mean()-Y tBodyGyro-mean()-Y
+##  Min.   :-0.8770      Min.   :-0.8065       Min.   :-0.6825   
+##  1st Qu.:-0.0103      1st Qu.:-0.0119       1st Qu.:-0.0125   
+##  Median : 0.0016      Median : 0.0011       Median : 0.0008   
+##  Mean   : 0.0032      Mean   :-0.0010       Mean   :-0.0037   
+##  3rd Qu.: 0.0338      3rd Qu.: 0.0238       3rd Qu.: 0.0198   
+##  Max.   : 0.5410      Max.   : 0.5584       Max.   : 0.4720   
+##  NA&#39;s   :1            NA&#39;s   :1             NA&#39;s   :1         
+##  tBodyAcc-mean()-Z tGravityAcc-mean()-Z tBodyAccJerk-mean()-Z
+##  Min.   :-0.5708   Min.   :-0.9462      Min.   :-0.6523      
+##  1st Qu.:-0.0208   1st Qu.:-0.0153      1st Qu.:-0.0152      
+##  Median :-0.0002   Median : 0.0006      Median : 0.0005      
+##  Mean   : 0.0000   Mean   : 0.0020      Mean   : 0.0012      
+##  3rd Qu.: 0.0188   3rd Qu.: 0.0187      3rd Qu.: 0.0160      
+##  Max.   : 0.6342   Max.   : 0.4574      Max.   : 0.4809      
+##                                                              
+##  tBodyGyro-mean()-Z tBodyAcc-std()-X  tGravityAcc-std()-X
+##  Min.   :-0.6902    Min.   :-2.3229   Min.   :-2.2428    
+##  1st Qu.:-0.0168    1st Qu.:-0.1021   1st Qu.:-0.0913    
+##  Median : 0.0001    Median :-0.0016   Median :-0.0010    
+##  Mean   :-0.0044    Mean   :-0.0254   Mean   :-0.0226    
+##  3rd Qu.: 0.0152    3rd Qu.: 0.0592   3rd Qu.: 0.0479    
+##  Max.   : 0.4180    Max.   : 1.8908   Max.   : 2.3667    
+##                                                          
+##  tBodyAccJerk-std()-X tBodyGyro-std()-X tBodyAcc-std()-Y 
+##  Min.   :-1.8817      Min.   :-2.8990   Min.   :-2.3669  
+##  1st Qu.:-0.0695      1st Qu.:-0.0569   1st Qu.:-0.0624  
+##  Median :-0.0003      Median :-0.0004   Median :-0.0005  
+##  Mean   :-0.0050      Mean   : 0.0012   Mean   : 0.0154  
+##  3rd Qu.: 0.0563      3rd Qu.: 0.0539   3rd Qu.: 0.0619  
+##  Max.   : 2.0553      Max.   : 2.6649   Max.   : 2.1672  
+##                                                          
+##  tGravityAcc-std()-Y tBodyAccJerk-std()-Y tBodyGyro-std()-Y
+##  Min.   :-2.3568     Min.   :-2.0350      Min.   :-2.2101  
+##  1st Qu.:-0.0743     1st Qu.:-0.0504      1st Qu.:-0.0611  
+##  Median :-0.0021     Median :-0.0004      Median :-0.0012  
+##  Mean   :-0.0148     Mean   : 0.0101      Mean   :-0.0076  
+##  3rd Qu.: 0.0303     3rd Qu.: 0.0454      3rd Qu.: 0.0317  
+##  Max.   : 2.3760     Max.   : 2.8308      Max.   : 2.5719  
+##                                                            
+##  tBodyAcc-std()-Z  tGravityAcc-std()-Z tBodyAccJerk-std()-Z
+##  Min.   :-2.4179   Min.   :-1.7481     Min.   :-1.6947     
+##  1st Qu.:-0.0363   1st Qu.:-0.0335     1st Qu.:-0.0269     
+##  Median : 0.0007   Median : 0.0003     Median : 0.0006     
+##  Mean   : 0.0030   Mean   : 0.0055     Mean   : 0.0024     
+##  3rd Qu.: 0.0688   3rd Qu.: 0.0612     3rd Qu.: 0.0551     
+##  Max.   : 1.2937   Max.   : 1.4400     Max.   : 1.3460     
+##                                                            
+##  tBodyGyro-std()-Z fBodyAcc-mean()-X fBodyAccJerk-mean()-X
+##  Min.   :-1.4131   Min.   :-0.245    Min.   :-0.244       
+##  1st Qu.:-0.0245   1st Qu.: 0.719    1st Qu.: 0.715       
+##  Median : 0.0011   Median : 0.956    Median : 0.962       
+##  Mean   : 0.0077   Mean   : 0.814    Mean   : 0.814       
+##  3rd Qu.: 0.0475   3rd Qu.: 1.020    3rd Qu.: 1.020       
+##  Max.   : 1.5581   Max.   : 1.964    Max.   : 2.025       
+##                                                           
+##  fBodyAcc-mean()-Y fBodyAccJerk-mean()-Y fBodyAcc-mean()-Z
+##  Min.   :-1.2459   Min.   :-1.1163       Min.   :-1.0925  
+##  1st Qu.:-0.2241   1st Qu.:-0.2305       1st Qu.:-0.0948  
+##  Median :-0.0827   Median :-0.0868       Median : 0.0420  
+##  Mean   : 0.0070   Mean   : 0.0039       Mean   : 0.0797  
+##  3rd Qu.: 0.1458   3rd Qu.: 0.1350       3rd Qu.: 0.2022  
+##  Max.   : 1.0831   Max.   : 1.0063       Max.   : 0.9832  
+##                                                           
+##  fBodyAccJerk-mean()-Z fBodyAcc-std()-X  fBodyAccJerk-std()-X
+##  Min.   :-0.9856       Min.   :-0.9843   Min.   :-0.7301     
+##  1st Qu.:-0.0935       1st Qu.:-0.0549   1st Qu.:-0.0601     
+##  Median : 0.0474       Median :-0.0011   Median :-0.0010     
+##  Mean   : 0.0823       Mean   :-0.0024   Mean   :-0.0072     
+##  3rd Qu.: 0.2072       3rd Qu.: 0.0098   3rd Qu.: 0.0070     
+##  Max.   : 0.9953       Max.   : 1.0229   Max.   : 0.9702     
+##                                                              
+##  fBodyAcc-std()-Y  fBodyAccJerk-std()-Y fBodyAcc-std()-Z 
+##  Min.   :-1.0013   Min.   :-0.7929      Min.   :-0.7092  
+##  1st Qu.:-0.0134   1st Qu.:-0.0132      1st Qu.:-0.0222  
+##  Median : 0.0015   Median : 0.0008      Median : 0.0005  
+##  Mean   : 0.0042   Mean   :-0.0018      Mean   : 0.0039  
+##  3rd Qu.: 0.0489   3rd Qu.: 0.0282      3rd Qu.: 0.0280  
+##  Max.   : 0.8485   Max.   : 0.5468      Max.   : 0.9551  
+##                                                          
+##  fBodyAccJerk-std()-Z      mAvg        
+##  Min.   :-0.9651      Min.   :-0.0268  
+##  1st Qu.:-0.0217      1st Qu.:-0.0006  
+##  Median : 0.0000      Median : 0.0000  
+##  Mean   : 0.0019      Mean   : 0.0001  
+##  3rd Qu.: 0.0166      3rd Qu.: 0.0005  
+##  Max.   : 0.6540      Max.   : 0.0182  
+##                       NA&#39;s   :1
+</code></pre>
+
+<h2>Save to file tidy.csv</h2>
+
+</body>
+
+</html>

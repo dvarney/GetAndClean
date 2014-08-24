@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>run_analysis</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+
+<h1>run_analysis</h1>
+
+<p>Last updated 2014-08-24 17:21:58 using R version 3.1.1 (2014-07-10).</p>
+
+<h2>Instructions for project</h2>
+
+<blockquote>
+<p>The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected.</p>
+
+<p>One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:</p>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>Here are the data for the project:</p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
+
+<p>You should create one R script called run_analysis.R that does the following.</p>
+
+<ol>
+<li><strong>DONE</strong> Merges the training and the test sets to create one data set.</li>
+<li><strong>DONE</strong> Extracts only the measurements on the mean and standard deviation for each measurement.</li>
+<li><strong>DONE</strong> Uses descriptive activity names to name the activities in the data set.</li>
+<li><strong>DONE</strong> Appropriately labels the data set with descriptive activity names.</li>
+<li><strong>DONE</strong> Creates a second, independent tidy data set with the average of each variable for each activity and each subject.</li>
+</ol>
+</blockquote>
+
+<h2>Start Up</h2>
+
+<p>get libraries and init structures</p>
+
+<pre><code class="r">        #get required libraries
+        library(data.table)
+        library(knitr)
+        library(markdown)
+
+        #init structures and paths
+        pTidy    &lt;- NULL
+        iDx      &lt;- NULL
+        tMeanSd  &lt;- NULL
+
+        pMat0    &lt;- matrix(NA, 1, 4)
+        pMat     &lt;- matrix(NA, 1, 128)
+        pMat1    &lt;- matrix(NA, 1, 38)
+        pAvg     &lt;- matrix(NA, 1, 38)
+        mAvg     &lt;- matrix(NA, 2947, 1)
+        onlyMean &lt;- matrix(nrow=8, ncol=6)
+        onlySd   &lt;- matrix(nrow=8, ncol=6)
+        tonlyMean&lt;- matrix(nrow=8, ncol=6)
+        tonlySd  &lt;- matrix(nrow=8, ncol=6)
+        tavgMean &lt;- NULL
+        tavgSd   &lt;- NULL
+
+        pathToTestDataSet   &lt;- NULL
+        pathToTestDataFile  &lt;- NULL
+        pathToTrialDataSet  &lt;- NULL  
+        pathToTrialDataFile &lt;- NULL
+
+        testFiles &lt;- c(&quot;body_acc_x_test_cpy.txt&quot;,   &quot;body_acc_y_test_cpy.txt&quot;,   &quot;body_acc_z_test_cpy.txt&quot;,
+                       &quot;body_gyro_x_test_cpy.txt&quot;,  &quot;body_gyro_y_test_cpy.txt&quot;,  &quot;body_gyro_z_test_cpy.txt&quot;,
+                       &quot;total_acc_x_test_cpy.txt&quot;,  &quot;total_acc_y_test_cpy.txt&quot;,  &quot;total_acc_z_test_cpy.txt&quot;,
+                       &quot;body_acc_x_train_cpy.txt&quot;,  &quot;body_acc_y_train_cpy.txt&quot;,  &quot;body_acc_z_train_cpy.txt&quot;,
+                       &quot;body_gyro_x_train_cpy.txt&quot;, &quot;body_gyro_y_train_cpy.txt&quot;, &quot;body_gyro_z_train_cpy.txt&quot;,
+                       &quot;total_acc_x_train_cpy.txt&quot;, &quot;total_acc_y_train_cpy.txt&quot;, &quot;total_acc_z_train_cpy.txt&quot;)
+        testMode &lt;- c(&quot;subject_test&quot;, &quot;y_test&quot;)
+</code></pre>
+
+<p>Set paths</p>
+
+<pre><code class="r">        destDir &lt;- &quot;K:/COURSES/JHU_DataScience/GettingAndCleaningData/UCI HAR Dataset&quot;            
+        pathToDataSet &lt;- paste(destDir, &#39;features.txt&#39;, sep=&#39;/&#39;)
+
+        fileUrl &lt;- &quot;https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip&quot;
+        zipFile &lt;- &quot;getdata_projectfiles_UCI HAR Dataset.zip&quot;             
+        destDir1 &lt;- &quot;K:/COURSES/JHU_DataScience/GettingAndCleaningData&quot;
+        pathToUnZiped &lt;- &quot;K:/COURSES/JHU_DataScience/GettingAndCleaningData/UCI HAR Dataset&quot;
+</code></pre>
+
+<h2>Get the data</h2>
+
+<p>Download the files, unzip and load features data.  </p>
+
+<pre><code class="r">        if (!file.exists(paste(pathToUnZiped, zipFile, sep=&#39;/&#39;))) 
+        {
+            message(&quot;getting Zipfile&quot;)
+            download.file(fileUrl, pathToUnZiped)
+        }
+
+        if (!file.exists(paste(pathToUnZiped, zipFile, sep=&#39;/&#39;))) 
+        {
+            message(&quot;getting Zipfile&quot;)
+            download.file(fileUrl, pathToUnZiped)
+        }
+
+        #true shows the file tree, false unzips it
+        unzip(zipFile, list=FALSE)
+
+        #check if already grabbed the column/descriptor file
+        if (!file.exists(pathToDataSet))  
+        {
+            message(&quot;Check FEATURES file&quot;)
+        }
+        else
+        {
+            #print(pathToDataSet)
+            message(&quot;Read column headings from FEATUES.TXT datafile (index:mean, index:sd)&quot;)
+            fTable &lt;- read.table(pathToDataSet, header=FALSE, sep=&#39; &#39;, as.is=TRUE)
+            #print(sprintf(&quot;fTable[%d:%d]&quot;, nrow(fTable), ncol(fTable)))  
+        }
+
+        #set the test/trial paths
+        pathToTestDataSet   &lt;- paste(destDir, &#39;test/Inertial Signals&#39;, sep=&#39;/&#39;)
+        pathToTestDataFile  &lt;- paste(pathToTestDataSet, testFiles[1], sep=&#39;/&#39;)
+        pathToTrialDataSet  &lt;- paste(destDir, &#39;train/Inertial Signals&#39;, sep=&#39;/&#39;)
+        pathToTrialDataFile &lt;- paste(pathToTestDataSet, testFiles[1], sep=&#39;/&#39;)
+</code></pre>
+
+<p>Read the subject files</p>
+
+<pre><code class="r">        #Read the test/train subject&#39;s number 
+        subjectTestFile &lt;- paste(destDir, &#39;test/subject_test.txt&#39;, sep=&#39;/&#39;)
+        subject_test &lt;- read.csv(subjectTestFile, header=FALSE, sep=&#39;&#39;, as.is=TRUE)
+        subjectTrainFile &lt;- paste(destDir, &#39;train/subject_train.txt&#39;, sep=&#39;/&#39;)
+        subject_train &lt;- read.csv(subjectTrainFile, header=FALSE, sep=&#39;&#39;, as.is=TRUE)
+</code></pre>
+
+<p>Read the activity files</p>
+
+<pre><code class="r">        #Get the type of test for the subject, 1:1 match
+        yTestFile &lt;- paste(destDir, &#39;test/y_test.txt&#39;, sep=&#39;/&#39;)
+        y_test &lt;- read.csv(yTestFile, header=FALSE, sep=&#39;&#39;, as.is=TRUE)
+        yTrainFile &lt;- paste(destDir, &#39;train/y_train.txt&#39;, sep=&#39;/&#39;)
+        y_train &lt;- read.csv(yTrainFile, header=FALSE, sep=&#39;&#39;, as.is=TRUE)
+</code></pre>
+
+<p>convert the activity codes to text</p>
+
+<pre><code class="r">        for (i in 1:nrow(y_test))
+        {
+            activity &lt;- y_test[i,1]
+            if (activity == 1) {y_test[i,1] &lt;- &quot;WALKING&quot;}
+            else if (activity == 2) {y_test[i,1] &lt;- &quot;WALKING_UPSTAIRS&quot;}
+            else if (activity == 3) {y_test[i,1] &lt;- &quot;WALKING_DOWNSTAIRS&quot;}       
+            else if (activity == 4) {y_test[i,1] &lt;- &quot;SITTING&quot;}       
+            else if (activity == 5) {y_test[i,1] &lt;- &quot;STANDING&quot;}       
+            else if (activity == 6) {y_test[i,1] &lt;- &quot;LAYING&quot;}                       
+        }
+</code></pre>
+
+<p>cycle through the features file getting only the mean and sd, these are the keys:</p>
+
+<p>[1] &ldquo;offset into features.txt:&rdquo;
+ [1]   1   2   3  41  42  43  81  82  83 121 122 123 161 162 163 201 214 227 240 253 266 267 268 345 346 347 424 425 426
+[30] 503 516 529 542</p>
+
+<p>NOTE: only the X,Y,Z sets were used</p>
+
+<pre><code class="r">        xrow &lt;- 1
+        xcol &lt;- 2
+        fT_nrows &lt;- nrow(fTable)
+        xr &lt;- grep(&#39;\\-mean\\(&#39;, fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+
+        X &lt;- 1
+        Y &lt;- 2
+        Z &lt;- 3
+        #get offsets from FEATURES file for mean &amp; sd for all X,Y,Z -- TEST
+        onlyMean[,X] &lt;- grep((&#39;\\-mean\\(\\)\\-X&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        onlySd[,X]   &lt;- grep((&#39;\\-std\\(.+?\\-X&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        onlyMean[,Y] &lt;- grep((&#39;\\-mean\\(.+?\\-Y&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        onlySd[,Y]   &lt;- grep((&#39;\\-std\\(.+?\\-Y&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        onlyMean[,Z] &lt;- grep((&#39;\\-mean\\(.+?\\-Z&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        onlySd[,Z]   &lt;- grep((&#39;\\-std\\(.+?\\-Z&#39;), fTable[1:fT_nrows,2], ignore.case=TRUE, value=FALSE)
+</code></pre>
+
+<pre><code>## Error: replacement has length zero
+</code></pre>
+
+<pre><code class="r">        #-- TRIAL
+        tonlyMean[6:7,] &lt;- onlyMean[6:7,]
+        tonlySd[6:7,] &lt;- onlySd[6:7,]
+
+        onlyMean[7,] &lt;- onlyMean[7,]-(onlyMean[6,]-X:Z)
+        onlyMean[6,] &lt;- onlyMean[6,]-(onlyMean[6,]-X:Z)
+        onlySd[7,]   &lt;- onlySd[7,]-((onlySd[6,]-3)-X:Z)
+        onlySd[6,]   &lt;- onlySd[6,]-((onlySd[6,]-3)-X:Z)
+</code></pre>
+
+<p>Merge the training and test sets by appending columns in situ, re-order later</p>
+
+<pre><code class="r">        fileCon &lt;- file(&quot;tidy.csv&quot;, &quot;w&quot;)
+        ntFiles &lt;- length(testFiles)
+        tftFiles &lt;- 10
+
+        dx &lt;- 1
+
+        for (j in 1:ntFiles)
+        {
+            if (j &lt; tftFiles)
+                {
+                    message(&quot;reading TEST data&quot;)
+                    pathToTestDataFile &lt;- paste(pathToTestDataSet, testFiles[j], sep=&#39;/&#39;)
+                    test &lt;- read.csv(pathToTestDataFile, header=FALSE, sep=&#39;,&#39;, as.is=TRUE)
+            } else
+                {
+                    message(&quot;reading TRIAL data&quot;)
+                    pathToTrialDataFile &lt;- paste(pathToTrialDataSet, testFiles[j], sep=&#39;/&#39;)
+                    test &lt;- read.csv(pathToTrialDataFile, header=FALSE, sep=&#39;,&#39;, as.is=TRUE)
+                }
+
+            #extract either the TEST or TRIAL columns, the two sets will butt against the other
+            switch(j,
+                   j1 = {iDx[1:4] &lt;- 1  #reference for where to indicate MEAN or SD
+                         pTidy &lt;- cbind(subject_test, y_test, test[,onlyMean[1:4,X]])},
+                   j2 = {if (nrow(test) &lt; 2947) #pad the rows, these are uneven between test 
+                            {     
+                                test &lt;- rbind(test, pMat)                                
+                                pTidy &lt;- cbind(pTidy, test[,onlyMean[1:4,Y]])
+                            }
+                         iDx[5:8] &lt;- 1
+                    },
+                   j3 = {iDx[9:12] &lt;- 1
+                         pTidy &lt;- cbind(pTidy, test[,onlyMean[1:4,Z]])},
+                   j4 = {iDx[13:16] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[,onlySd[1:4,X]])},
+                   j5 = {iDx[17:20] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[,onlySd[1:4,Y]])},
+                   j6 = {iDx[21:24] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[,onlySd[1:4,Z]])},
+                   j7 = {iDx[25:26] &lt;- 1
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlyMean[6:7,X]])},
+                   j8 = {iDx[27:28] &lt;- 1
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlyMean[6:7,Y]])},
+                   j9 = {iDx[29:30] &lt;- 1
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlyMean[6:7,Z]])},
+                   j10= {iDx[31:32] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlySd[6:7,X]])},
+                   j11= {iDx[33:34] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlySd[6:7,Y]])},
+                   j12= {iDx[35:36] &lt;- 2
+                         pTidy &lt;- cbind(pTidy, test[1:2947,onlySd[6:7,Z]])},
+                    {
+                        &quot;other&quot;
+                    }
+                   )
+            message(&quot;waiting ...&quot;)    
+        }
+</code></pre>
+
+<pre><code>## reading TEST data
+</code></pre>
+
+<pre><code>## Warning: cannot open file &#39;/body_acc_x_test_cpy.txt&#39;: No such file or
+## directory
+</code></pre>
+
+<pre><code>## Error: cannot open the connection
+</code></pre>
+
+<p>Extract only the mean and SD, do an average</p>
+
+<pre><code class="r">        #compute the averages for each test/trial 
+        pAvg[1] &lt;- &quot;&quot;
+        pAvg[2] &lt;- &quot;pAvg&quot;
+        for (k in 1:(ncol(pTidy)-2))
+        {
+            if (iDx[k] == 1)
+                {tavgMean[k] &lt;- (sum(pTidy[, k+2], na.rm=TRUE))/(nrow(pTidy)); 
+                 pAvg[k+2] &lt;- tavgMean[k]; print(sprintf(&quot;%d: %f&quot;, k, tavgMean[k]))
+                }
+            if (iDx[k] == 2)
+                {tavgSd[k] &lt;- (sum(pTidy[, k+2], na.rm=TRUE))/(nrow(pTidy)); 
+                 pAvg[k+2] &lt;- tavgSd[k]; print(sprintf(&quot;%d: %f&quot;, k, tavgSd[k]))}
+        }
+</code></pre>
+
+<pre><code>## Error: argument of length 0
+</code></pre>
+
+<pre><code class="r">        #now do within each subject
+        pTrows &lt;- nrow(pTidy)-1
+        for (l in 1:pTrows)
+        {
+            for (n in 3:38)
+                mAvg[l] &lt;- sum(pTidy[l,n], na.rm=TRUE)/pTcol
+        }
+</code></pre>
+
+<pre><code>## Error: argument of length 0
+</code></pre>
+
+<pre><code class="r">        #print(mAvg)
+        pTidy &lt;- cbind(pTidy, mAvg)
+</code></pre>
+
+<p>re-order the dataset on the subject number</p>
+
+<pre><code class="r">new_pTidy &lt;- pTidy[order(pTidy[,1]),]
+</code></pre>
+
+<p>Label columns with feature table names</p>
+
+<pre><code class="r">        xtestMeanColNames &lt;- c(&quot;subject&quot;, &quot;test&quot;, fTable[onlyMean[1:4,X],2])
+        ytestMeanColNames &lt;- fTable[onlyMean[1:4,Y],2]
+        ztestMeanColNames &lt;- fTable[onlyMean[1:4,Z],2]
+        xtestSdColNames   &lt;- fTable[onlySd[1:4,X],2]
+        ytestSdColNames   &lt;- fTable[onlySd[1:4,Y],2]
+        ztestSdColNames   &lt;- fTable[onlySd[1:4,Z],2]
+
+        xtrainMeanColNames &lt;- fTable[tonlyMean[6:7,X],2]
+        ytrainMeanColNames &lt;- fTable[tonlyMean[6:7,Y],2]
+        ztrainMeanColNames &lt;- fTable[tonlyMean[6:7,Z],2]
+        xtrainSdColNames   &lt;- fTable[tonlySd[6:7,X],2]
+        ytrainSdColNames   &lt;- fTable[tonlySd[6:7,Y],2]
+        ztrainSdColNames   &lt;- fTable[tonlySd[6:7,Z],2]
+
+
+        xyztestMeanColNames  &lt;- c(xtestMeanColNames, ytestMeanColNames, ztestMeanColNames)   #6+4+4 \ 26
+        xyztestSdColNames    &lt;- c(xtestSdColNames, ytestSdColNames, ztestSdColNames)         #4+4+4 /
+        xyztrainMeanColNames &lt;- c(xtrainMeanColNames, ytrainMeanColNames, ztrainMeanColNames)#2+2+2 \ 12
+        xyztrainSdColNames   &lt;- c(xtrainSdColNames, ytrainSdColNames, ztrainSdColNames)      #2+2+2 /
+                                                                                             #total   38
+        dimnames(pTidy) = list(as.character(1:nrow(pTidy)), c(xyztestMeanColNames, xyztestSdColNames, 
+                                                              xyztrainMeanColNames, xyztrainSdColNames))
+</code></pre>
+
+<pre><code>## Error: length of &#39;dimnames&#39; [2] not equal to array extent
+</code></pre>
+
+<p>feature.txt is no longer required
+open a file connection and write the tidy data set (pTidy)</p>
+
+<pre><code class="r">        fileCon &lt;- file(&quot;tidy.csv&quot;, &quot;w&quot;)
+        write.table(pTidy, row.names=FALSE, col.names=TRUE, sep=&#39;,&#39;, fileCon) #Tidy Dataset
+        write.table(pAvg, row.names=FALSE, col.names=FALSE, sep=&#39;,&#39;, fileCon) #averages 
+</code></pre>
+
+<p>Make codebook.</p>
+
+<pre><code class="r">knit(&quot;makeCodebook.Rmd&quot;, output=&quot;codebook.md&quot;, encoding=&quot;ISO8859-1&quot;, quiet=TRUE)
+</code></pre>
+
+<pre><code>## [1] &quot;codebook.md&quot;
+</code></pre>
+
+<pre><code class="r">markdownToHTML(&quot;codebook.md&quot;, &quot;codebook.html&quot;)
+</code></pre>
+
+<pre><code>Status
+API
+Training
+Shop
+Blog
+About
+
+© 2014 GitHub, Inc.
+Terms
+Privacy
+Security
+Contact
+</code></pre>
+
+</body>
+
+</html>
