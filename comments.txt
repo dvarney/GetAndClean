@@ -1,6 +1,6 @@
 Just a comment, if you have trouble viewing the tidy data, bring it up from 
 the repository or the link. Right click mouse -> select all -> copy into a
-text doc. Namr it 'whatever'.csv.
+text doc. Name it 'whatever'.csv.
 
 Use a spreadsheet program, give it the file, 'whatever'.csv, comma delimited
 and you should be good.
